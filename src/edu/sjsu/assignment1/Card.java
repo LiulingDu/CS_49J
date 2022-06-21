@@ -3,11 +3,12 @@ package edu.sjsu.assignment1;
 public class Card {
     private final String shortHand;
     private final String UNKNOWN = "Unknown";
-    private static String description;
+    private String description;
 
 
     public Card(String shortHand) {
         this.shortHand = shortHand;
+        this.description=setDescription();
     }
 
     private String getrank() {
@@ -36,8 +37,8 @@ public class Card {
     private String getsuit(){
         char suitShort=shortHand.charAt(shortHand.length()-1);
         return switch (suitShort){
-            case 'H' -> "Heart";
-            case 'D' -> "Diamond";
+            case 'H' -> "Hearts";
+            case 'D' -> "Diamonds";
             case 'S' -> "Spades";
             case 'C' -> "Clubs";
             default -> UNKNOWN;
@@ -50,11 +51,11 @@ public class Card {
         if (rank.equals(UNKNOWN) || suit.equals(UNKNOWN)) {
             return UNKNOWN;
         } else {
-            return (rank + " of " + suit);
+            return rank + " of " + suit;
         }
     }
 
-    public static String getDescription() {
-        return description;
+    public String getDescription() {
+        return this.description;
     }
 }
