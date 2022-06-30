@@ -18,7 +18,10 @@ public class MyFile {
     // for each line
     // get each word(separated by a comma)
     // for each word, if it's a prime, write to outputFile
-
+    public static void main(String[] args) throws FileNotFoundException {
+        writePrimes("panda,CS47,2,hello,5,11WOW\n" +
+                "        yes,no,5,18,3","output");
+    }
     public static void writePrimes(String inputFile , String outputFile) throws FileNotFoundException {
         // read inputFile line by line
         File input = new File(inputFile);
