@@ -1,18 +1,15 @@
 package edu.sjsu.assignment2;
 
 import java.util.Scanner;
-
-/*
-    Write a public static function that takes two Strings as two times in military format (hhmm) and
-    prints the number of hours and minutes between the two times. If the first time is later than the
-    second time, assume the second time is the next day (i.e., add 24 hours to the second time).
-    Specifications
-    • Package name: edu.sjsu.assignment1
-    • Class name: MyTime
-    • Method name: printTimeDifference
-    • Output format: X hour(s) Y minute(s)
-     */
+/**
+ * Calculate time difference.
+ */
 public class MyTime {
+
+    /**
+     * Input time and output the difference.
+     */
+
     public static void main(String[] args) {
         while(true){
             try{
@@ -24,6 +21,7 @@ public class MyTime {
                 System.out.println("Try again? Y/N");
                 Scanner scanner=new Scanner(System.in);
                 if(scanner.nextLine().equals("N")){
+                    System.out.printf("Thank you for using!");
                     break;
                 }
             }catch(Exception e){
@@ -43,13 +41,31 @@ public class MyTime {
 
     private static void validate(String input){
         if(!input.matches("[0-9]{4}?")){
-            throw new IllegalArgumentException("Invalid input! Program terminated! ");
-            // the first 2 digits must be from 0-24
-            // the last 2 digits must be from 0-60
-            // if not, throw exception
+            throw new IllegalArgumentException("Invalid input! Try again! ");
         }
+        // the first 2 digits must be from 0-24
+        // the last 2 digits must be from 0-60
+        // if not, throw exception
+        String hr=input.substring(0,2);
+        String min=input.substring(2);
+        int hour=Integer.parseInt(hr);
+        int minute=Integer.parseInt(min);
+        if(hour<0||hour>=24){
+            throw new IllegalArgumentException("the first 2 digits must be from 0-24");
+        }
+        if(minute<0||minute>=60){
+            throw new IllegalArgumentException("the last 2 digits must be from 0-60");
+        }
+
     }
 
+    /**
+     * Check the time difference.
+     *
+     * (If the first time is later than the second time, assume the second time is the next day)
+     * @param time1 1st time
+     * @param time2 2nd time
+     */
     public static void printTimeDifference(String time1,String time2) {
         // Convert times to minutes in integer
         int t1 = militaryToMinutes(time1);
@@ -66,8 +82,7 @@ public class MyTime {
         int hour= difference / 60;
         int minutes=difference % 60;
         // printout
-        System.out.printf("%d hour(s) %d  minute(s)\n",hour,minutes);
-        System.out.println(hour+ " " + minutes + "");
+        System.out.printf("%d hour(s) %d minute(s)\n",hour,minutes);
     }
 
     private static int militaryToMinutes(String time){
