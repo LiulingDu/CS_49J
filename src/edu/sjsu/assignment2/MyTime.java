@@ -61,8 +61,7 @@ public class MyTime {
 
     /**
      * Check the time difference.
-     *
-     * (If the first time is later than the second time, assume the second time is the next day)
+     *<br>(If the first time is later than the second time, assume the second time is the next day)
      * @param time1 1st time
      * @param time2 2nd time
      */
