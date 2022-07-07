@@ -1,6 +1,8 @@
 package edu.sjsu.assignment2;
 
 import java.util.Scanner;
+
+// published at : https://liulingdu.github.io/edu/sjsu/assignment2/MyTime.html
 /**
  * Calculate time difference.
  */
