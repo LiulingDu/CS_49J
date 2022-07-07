@@ -51,10 +51,10 @@ public class MyTime {
         int hour=Integer.parseInt(hr);
         int minute=Integer.parseInt(min);
         if(hour<0||hour>=24){
-            throw new IllegalArgumentException("the first 2 digits must be from 0-24");
+            throw new IllegalArgumentException("Hour must be between 0-24");
         }
         if(minute<0||minute>=60){
-            throw new IllegalArgumentException("the last 2 digits must be from 0-60");
+            throw new IllegalArgumentException("Minutes must be between 0-60");
         }
 
     }
