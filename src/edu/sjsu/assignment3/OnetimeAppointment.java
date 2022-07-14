@@ -12,7 +12,7 @@ public class OnetimeAppointment extends Appointment {
     }
 
     /**
-     * check if the input is the exact same as the start date of appointment.
+     * Check if the input is the exact same as the start date of appointment.
      *
      * @param date String description
      */

@@ -12,7 +12,7 @@ public class MonthlyAppointment extends Appointment {
     }
 
     /**
-     * check if the input is between the start and end date (inclusive) AND the day of month of the
+     * Check if the input is between the start and end date (inclusive) AND the day of month of the
      * input date is the same as the start date’s day of month of the appointment
      *
      * @param date String description
