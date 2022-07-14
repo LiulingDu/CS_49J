@@ -9,7 +9,7 @@ public abstract class Appointment implements Comparable<Appointment>{
 
     @Override
     public int compareTo(Appointment o){
-        if(startDate.isEqual(o.startDate)){
+        if(!startDate.isEqual(o.startDate)){
             return startDate.compareTo(o.startDate);
         }else if(!endDate.isEqual(o.endDate)){
             return endDate.compareTo(o.endDate);
