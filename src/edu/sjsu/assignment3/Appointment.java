@@ -2,6 +2,8 @@ package edu.sjsu.assignment3;
 
 import java.time.LocalDate;
 
+// published at:https://liulingdu.github.io/edu/sjsu/assignment3/package-summary.html
+
 /**
  * Appointment Class - Superclass
  */
