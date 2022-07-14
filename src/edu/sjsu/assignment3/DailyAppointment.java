@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 /**
  * DailyAppointment Class - subclass of Appointment
+ *
+ *
  */
 
 public class DailyAppointment extends Appointment {
