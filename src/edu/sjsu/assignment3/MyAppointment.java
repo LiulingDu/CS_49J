@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+
 public class MyAppointment {
     public static void main(String[] args) {
         LocalDate a1_startDate = LocalDate.parse("2022-01-27");
@@ -26,6 +28,8 @@ public class MyAppointment {
         MonthlyAppointment a5 = new MonthlyAppointment("A meeting" , a5_startDate , a5_endDate);
 
         Appointment[] myAppointment = {a1 , a2 , a3 , a4 , a5};
-        Arrays.sort(myAppointment);
+        Appointment[] result = {a4 , a5 , a3 , a2 , a1};
+        Arrays.sort(myAppointment,new DesComparator());
+        System.out.println(Arrays.equals(myAppointment,result));
     }
 }
