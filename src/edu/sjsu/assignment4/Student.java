@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Student {
     private final int id;
-    private final String name;
+    private String name;
 
     public Student(int id , String name) {
         this.id = id;

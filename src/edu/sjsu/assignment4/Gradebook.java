@@ -2,13 +2,16 @@ package edu.sjsu.assignment4;
 
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class Gradebook {
-    private HashMap<Student, Character> studentsMap;
+    //private HashMap<Student, Character> studentsMap;
+    private Student student;
+    HashMap<Student, Character> studentsMap = new HashMap<>();
 
-    public Gradebook() {
-        this.studentsMap = studentsMap;
+    public Gradebook(){
+        this.studentsMap=studentsMap;
     }
 
     public boolean addStudent(Student student, char grade){
@@ -34,7 +37,7 @@ public class Gradebook {
     }
 
     public boolean updateStudent(int id, String newName){
-        Student toUpdate=new Student(id);
+        Student toUpdate=new Student(id,newName);
         Character grade=studentsMap.remove(toUpdate);
         if(grade==null) return false;
         studentsMap.put(toUpdate,grade);
@@ -42,15 +45,19 @@ public class Gradebook {
     }
 
     public boolean updateGrade(int id, char newGrade){
-        //replace
-        return false;
+        Student updateGrade=new Student(id);
+        if(!studentsMap.containsKey(updateGrade))
+            return false;
+        if(!isValidGrade(newGrade)) return false;
+        if(studentsMap.containsKey(updateGrade))
+            studentsMap.put(updateGrade,newGrade);return true;
     }
 
     public void printGrades(Comparator<Student> comparator){
         TreeMap<Student, Character> sorted=new TreeMap<>(comparator);
         sorted.putAll(studentsMap);
         sorted.forEach((student,grade) ->
-            System.out.println(student + ": " + grade)
+                System.out.println(student + "" + grade)
         );
     }
 }
