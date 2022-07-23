@@ -1,7 +1,10 @@
 package edu.sjsu.assignment4;
 
+import edu.sjsu.assignment2.MyTime;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -182,9 +185,11 @@ class GradebookTest{
                 "3.Bob: B"+"\n"+
                 "2.Cathy: N"+"\n"+
                 "5.Dennis: C");
-        System.out.println(result);
-        System.out.println("***************");
+        ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
+        PrintStream original=System.out;
+        System.setOut(new PrintStream(outputStream));
         printGrade(studentsMap);
+        assertEquals(result,outputStream.toString().trim());
     }
 
     private void printGrade(Comparator<Student> comparator) {
