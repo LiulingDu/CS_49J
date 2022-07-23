@@ -22,35 +22,35 @@ class MyCollectionsTest {
                 "Assignment 4 is posted.\n" +
                 "Please submit it before due date.\n" +
                 "***");
-        ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
-        PrintStream original=System.out;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream original = System.out;
         System.setOut(new PrintStream(outputStream));
         MyCollections.printFiles(files);
-        assertEquals(result,outputStream.toString().trim());
+        assertEquals(result , outputStream.toString().trim());
     }
 
     @Test
     void downsize() {
-        String[] list={"Tom", "Bob", "Cathy", "Alice", "Trudy", "Harry", "Denny"};
-        LinkedList<String> employees=new LinkedList<>(Arrays.asList(list));
-        MyCollections.downsize(employees,3);
-        String[] expected={"Tom", "Bob", "Alice", "Trudy", "Denny"};
-        LinkedList<String> expectedOutput=new LinkedList<>(Arrays.asList(expected));
+        String[] list = {"Tom" , "Bob" , "Cathy" , "Alice" , "Trudy" , "Harry" , "Denny"};
+        LinkedList<String> employees = new LinkedList<>(Arrays.asList(list));
+        MyCollections.downsize(employees , 3);
+        String[] expected = {"Tom" , "Bob" , "Alice" , "Trudy" , "Denny"};
+        LinkedList<String> expectedOutput = new LinkedList<>(Arrays.asList(expected));
         System.out.println(employees);
-        assertEquals(expectedOutput,employees);
+        assertEquals(expectedOutput , employees);
     }
 
     @Test
     void isBalanced() {
         // should return true
-        assertEquals(true,MyCollections.isBalanced("System.out.println(list.get(0))"));
+        assertEquals(true , MyCollections.isBalanced("System.out.println(list.get(0))"));
         // should return true
-        assertEquals(true,MyCollections.isBalanced("[](3*5)^2"));
+        assertEquals(true , MyCollections.isBalanced("[](3*5)^2"));
         // should return false
-        assertEquals(false,MyCollections.isBalanced("[(2+3]*5)^2"));
+        assertEquals(false , MyCollections.isBalanced("[(2+3]*5)^2"));
         // should return false
-        assertEquals(false,MyCollections.isBalanced("System.out.println(list.get(0)"));
+        assertEquals(false , MyCollections.isBalanced("System.out.println(list.get(0)"));
         // should return false
-        assertEquals(false,MyCollections.isBalanced("[(3*5)]^2]"));
+        assertEquals(false , MyCollections.isBalanced("[(3*5)]^2]"));
     }
 }

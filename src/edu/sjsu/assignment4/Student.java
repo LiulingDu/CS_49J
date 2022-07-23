@@ -16,8 +16,8 @@ public class Student {
         this.name = name;
     }
 
-    public Student(int id){
-        this(id,"Unnamed");
+    public Student(int id) {
+        this(id , "Unnamed");
     }
 
     public int getId() {
@@ -30,6 +30,7 @@ public class Student {
 
     /**
      * Check student objects
+     *
      * @param o
      */
     @Override
@@ -43,7 +44,6 @@ public class Student {
     }
 
     /**
-     *
      * @return hash code for a sequence of input values
      */
     @Override
@@ -52,11 +52,10 @@ public class Student {
     }
 
     /**
-     *
      * @return output students' info
      */
     @Override
     public String toString() {
-        return String.format("%d.%s: ",id,name);
+        return String.format("%d.%s: " , id , name);
     }
 }

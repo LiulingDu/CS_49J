@@ -70,7 +70,7 @@ public class MyCollections {
                 // if not, ( or the stack is empty ), return false;
                 // if yes, pop the top
             else if (c == ')' || c == ']') {
-                if(parentheses.isEmpty()) return false;
+                if (parentheses.isEmpty()) return false;
                 char top = parentheses.peek();
                 if (c == top) parentheses.pop();
                 else {
@@ -82,7 +82,7 @@ public class MyCollections {
     }
 
     public static void main(String[] args) {
-        String exp=("[(3*5)]^2]");
+        String exp = ("[(3*5)]^2]");
         isBalanced(exp);
     }
 }
