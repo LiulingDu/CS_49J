@@ -1,6 +1,9 @@
-package edu.sjsu.assignment3;
+package assignment4_Part2;
 
 import java.time.LocalDate;
+
+import static assignment4_Part2.AppointmentManager.appointmentMap;
+import static assignment4_Part2.AppointmentManager.description;
 
 // published at:https://liulingdu.github.io/edu/sjsu/assignment3/package-summary.html
 
@@ -17,14 +20,16 @@ public abstract class Appointment implements Comparable<Appointment> {
      * @param startDate LocalDate startDate
      * @param endDate LocalDate endDate
      */
+    public final LocalDate startDate;
+    public final LocalDate endDate;
+    public final String type;
     private final String description;
-    private final LocalDate startDate;
-    private final LocalDate endDate;
 
-    public Appointment(String description , LocalDate startDate , LocalDate endDate) {
-        this.description = description;
+    public Appointment(LocalDate startDate , LocalDate endDate,String type,String description) {
+        this.type = type;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.description=description;
     }
 
     /**
@@ -33,14 +38,16 @@ public abstract class Appointment implements Comparable<Appointment> {
      * @param o LocalDate endDate
      */
 
-    @Override
-    public int compareTo(Appointment o) {
+
+   @Override
+   public int compareTo(Appointment o) {
         if (!startDate.isEqual(o.startDate)) {
             return startDate.compareTo(o.startDate);
         } else if (!endDate.isEqual(o.endDate)) {
             return endDate.compareTo(o.endDate);
         } else return description.compareTo(o.description);
     }
+
 
     /**
      * Check whether the appointment occurs on a date or not
@@ -73,4 +80,19 @@ public abstract class Appointment implements Comparable<Appointment> {
     public LocalDate getEndDate() {
         return endDate;
     }
+
+    public String getType() {
+        return type;
+    }
+
+
+    @Override
+    public String toString() {
+        return String.format("%s, from %tF to %tF, %s " ,description,startDate,endDate,type);
+    }
 }
+
+
+
+
+
