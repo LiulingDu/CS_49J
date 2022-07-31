@@ -1,4 +1,4 @@
-package assignment4_Part2;
+package edu.sjsu.assignment4_Part2;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -59,26 +59,21 @@ public class AppointmentManager {
         // - input startDate and validate format
         System.out.printf("Please enter the starting date (yyyy-mm-dd):");
         Scanner scannerStartingDate = new Scanner(System.in);
-        startDate = LocalDate.parse(scannerStartingDate.nextLine());
-        /*
         try {
             startDate = LocalDate.parse(scannerStartingDate.nextLine());
         } catch (Exception e) {
-            throw new IllegalArgumentException("Invalid date! Try again! ");
+            throw new IllegalArgumentException("Invalid date!");
         }
-         */
 
         // - input endDate and validate format
         System.out.printf("Please enter the ending date (yyyy-mm-dd):");
         Scanner scannerEndingDate = new Scanner(System.in);
-        endDate = LocalDate.parse(scannerEndingDate.nextLine());
-        /*
         try {
             endDate = LocalDate.parse(scannerEndingDate.nextLine());
         } catch (Exception e) {
-            throw new IllegalArgumentException("Invalid date! Try again! ");
+            throw new IllegalArgumentException("Invalid date!  ");
         }
-         */
+
         appointmentMap.put(description , new Appointment(startDate , endDate , type , description) {
             @Override
             public int compareTo(Appointment o) {
@@ -87,10 +82,7 @@ public class AppointmentManager {
                 } else if (!endDate.isEqual(o.endDate)) {
                     return endDate.compareTo(o.endDate);
                 } else return type.compareTo(o.type);
-            }
-
-            ;
-
+            };
 
             @Override
             public boolean occursOn(LocalDate date) {

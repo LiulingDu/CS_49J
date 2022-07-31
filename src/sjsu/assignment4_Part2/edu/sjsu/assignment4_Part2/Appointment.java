@@ -1,9 +1,6 @@
-package assignment4_Part2;
+package edu.sjsu.assignment4_Part2;
 
 import java.time.LocalDate;
-
-import static assignment4_Part2.AppointmentManager.appointmentMap;
-import static assignment4_Part2.AppointmentManager.description;
 
 // published at:https://liulingdu.github.io/edu/sjsu/assignment3/package-summary.html
 
